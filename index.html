@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Playground</title>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    textarea, input, select {
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+    }
+    button {
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-top: 25px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Encryption Playground</h1>
+
+<div class="box">
+  <h2>Encrypt</h2>
+
+  <label>Message</label>
+  <textarea id="plaintext"></textarea>
+
+  <label>Cipher</label>
+  <select id="cipher">
+    <option value="caesar">Caesar</option>
+    <option value="aes">AES</option>
+  </select>
+
+  <button onclick="encrypt()">Encrypt</button>
+
+  <label>Generated Key</label>
+  <textarea id="encKey" readonly></textarea>
+
+  <label>Ciphertext</label>
+  <textarea id="ciphertext" readonly></textarea>
+</div>
+
+
+<div class="box">
+  <h2>Decrypt</h2>
+
+  <label>Cipher</label>
+  <select id="decCipher">
+    <option value="caesar">Caesar</option>
+    <option value="aes">AES</option>
+  </select>
+
+  <label>Key</label>
+  <textarea id="decKey"></textarea>
+
+  <label>Ciphertext</label>
+  <textarea id="decCiphertext"></textarea>
+
+  <button onclick="decrypt()">Decrypt</button>
+
+  <label>Decrypted Message</label>
+  <textarea id="decrypted" readonly></textarea>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
