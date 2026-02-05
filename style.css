@@ -1,0 +1,135 @@
+/* ===== GLOBAL ===== */
+body{
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background:#0f172a;
+  color:#e5e7eb;
+  margin:0;
+  padding:40px 20px;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:30px;
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+h2{
+  margin-top:0;
+  color:#93c5fd;
+}
+
+/* ===== LAYOUT ===== */
+.section{
+  background:#111827;
+  border:1px solid #1f2937;
+  border-radius:14px;
+  padding:22px;
+  margin:25px auto;
+  max-width:850px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.35);
+  transition:0.25s;
+}
+
+.section:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 35px rgba(0,0,0,0.45);
+}
+
+/* ===== INPUTS ===== */
+textarea,
+input,
+select{
+  width:100%;
+  background:#020617;
+  border:1px solid #1f2937;
+  color:#e5e7eb;
+  padding:10px;
+  margin-top:6px;
+  margin-bottom:14px;
+  border-radius:8px;
+  font-size:14px;
+  box-sizing:border-box;
+  transition:0.15s;
+}
+
+textarea{
+  min-height:70px;
+  resize:vertical;
+}
+
+textarea:focus,
+input:focus,
+select:focus{
+  outline:none;
+  border-color:#3b82f6;
+  box-shadow:0 0 0 1px #3b82f6;
+}
+
+/* ===== BUTTONS ===== */
+button{
+  background:linear-gradient(135deg,#2563eb,#4f46e5);
+  border:none;
+  color:white;
+  padding:11px 18px;
+  font-size:14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  letter-spacing:0.4px;
+  transition:0.18s;
+}
+
+button:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(37,99,235,0.35);
+}
+
+button:active{
+  transform:translateY(0);
+}
+
+/* ===== LABELS ===== */
+label{
+  font-size:13px;
+  color:#9ca3af;
+}
+
+/* ===== HEADER BAR ===== */
+.header{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.header p{
+  color:#9ca3af;
+  margin-top:6px;
+  font-size:14px;
+}
+
+/* ===== GRID FOR AES BOXES ===== */
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+@media(max-width:700px){
+  .row{
+    grid-template-columns:1fr;
+  }
+}
+
+/* ===== OUTPUT AREAS ===== */
+textarea[readonly]{
+  background:#020617;
+  border:1px dashed #374151;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  text-align:center;
+  margin-top:40px;
+  color:#6b7280;
+  font-size:13px;
+}

@@ -1,77 +1,124 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Crypto Playground</title>
-  <style>
-    body {
-      font-family: Arial;
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-    }
-    textarea, input, select {
-      width: 100%;
-      margin: 8px 0;
-      padding: 8px;
-    }
-    button {
-      padding: 10px;
-      margin: 10px 0;
-    }
-    .box {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-top: 25px;
-      border-radius: 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Crypto Playground</title>
+
+<style>
+body{
+  font-family: Arial;
+  max-width: 900px;
+  margin:auto;
+  padding:20px;
+}
+textarea,input,select{
+  width:100%;
+  padding:8px;
+  margin:6px 0;
+}
+button{
+  padding:10px;
+  margin:10px 0;
+}
+.section{
+  border:1px solid #ccc;
+  padding:15px;
+  margin-top:25px;
+  border-radius:8px;
+}
+</style>
 </head>
+
 <body>
 
-<h1>Encryption Playground</h1>
+<h1>Crypto Playground</h1>
 
-<div class="box">
-  <h2>Encrypt</h2>
+<!-- ================= KEY GENERATION ================= -->
+<div class="section">
+<h2>Key Generation</h2>
 
-  <label>Message</label>
-  <textarea id="plaintext"></textarea>
+<select id="keyCipher">
+  <option value="caesar">Caesar</option>
+  <option value="permutation">Permutation</option>
+  <option value="aes">AES</option>
+</select>
 
-  <label>Cipher</label>
-  <select id="cipher">
-    <option value="caesar">Caesar</option>
-    <option value="aes">AES</option>
-  </select>
+<input id="permSize" placeholder="Permutation block size (if applicable)" />
 
-  <button onclick="encrypt()">Encrypt</button>
+<button onclick="generateKey()">Generate Key</button>
 
-  <label>Generated Key</label>
-  <textarea id="encKey" readonly></textarea>
+<textarea id="generatedKey" placeholder="Generated key will appear here" readonly></textarea>
+</div>
 
-  <label>Ciphertext</label>
-  <textarea id="ciphertext" readonly></textarea>
+<!-- ================= ENCRYPT ================= -->
+<div class="section">
+<h2>Encrypt</h2>
+
+<select id="encCipher" onchange="updateEncryptUI()">
+  <option value="caesar">Caesar</option>
+  <option value="permutation">Permutation</option>
+  <option value="aes">AES</option>
+</select>
+
+<!-- single key (caesar/permutation) -->
+<div id="encKeyBox">
+  <label>Key</label>
+  <textarea id="encKey"></textarea>
+</div>
+
+<!-- AES key -->
+<div id="encAESKeyBox" style="display:none;">
+  <label>AES Key</label>
+  <textarea id="encAESKey"></textarea>
+</div>
+
+<!-- AES IV -->
+<div id="encIVBox" style="display:none;">
+  <label>IV</label>
+  <textarea id="encIV"></textarea>
+</div>
+
+<textarea id="plaintext" placeholder="Enter plaintext"></textarea>
+
+<button onclick="encrypt()">Encrypt</button>
+
+<textarea id="ciphertext" placeholder="Ciphertext" readonly></textarea>
 </div>
 
 
-<div class="box">
-  <h2>Decrypt</h2>
+<!-- ================= DECRYPT ================= -->
+<div class="section">
+<h2>Decrypt</h2>
 
-  <label>Cipher</label>
-  <select id="decCipher">
-    <option value="caesar">Caesar</option>
-    <option value="aes">AES</option>
-  </select>
+<select id="decCipher" onchange="updateDecryptUI()">
+  <option value="caesar">Caesar</option>
+  <option value="permutation">Permutation</option>
+  <option value="aes">AES</option>
+</select>
 
+<!-- single key -->
+<div id="decKeyBox">
   <label>Key</label>
   <textarea id="decKey"></textarea>
+</div>
 
-  <label>Ciphertext</label>
-  <textarea id="decCiphertext"></textarea>
+<!-- AES key -->
+<div id="decAESKeyBox" style="display:none;">
+  <label>AES Key</label>
+  <textarea id="decAESKey"></textarea>
+</div>
 
-  <button onclick="decrypt()">Decrypt</button>
+<!-- AES IV -->
+<div id="decIVBox" style="display:none;">
+  <label>IV</label>
+  <textarea id="decIV"></textarea>
+</div>
 
-  <label>Decrypted Message</label>
-  <textarea id="decrypted" readonly></textarea>
+<textarea id="decCiphertext" placeholder="Enter ciphertext"></textarea>
+
+<button onclick="decrypt()">Decrypt</button>
+
+<textarea id="decrypted" readonly></textarea>
 </div>
 
 <script src="script.js"></script>
